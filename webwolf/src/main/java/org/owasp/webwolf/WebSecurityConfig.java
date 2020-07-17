@@ -53,7 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/css/**", "/images/**", "/js/**", "/fonts/**", "/webjars/**").permitAll()
                 .antMatchers("/WebWolf/**").authenticated()
                 .anyRequest().permitAll();
-        security.and().formLogin()
+        security.and().csrf().disable().formLogin()
                 .loginPage("/login").failureUrl("/login?error=true");
         security.and()
                 .formLogin()
